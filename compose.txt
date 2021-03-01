@@ -1,0 +1,108 @@
+version: '3.8'
+
+services:
+ db:
+  image: postgres
+  environment:
+   POSTGRES_PASSWORD: intelliqit
+   POSTGRES_USER: myuser
+   POSTGRES_DB: mydb
+  container_name: db
+
+ adminer:
+  image: adminer
+  ports:
+   - 8888:8080
+  container_name: adminer
+
+networks:
+ default:
+  external:
+   name: intelliqit
+
+
+
+==========================================================
+
+---
+version: '3.8'
+
+services:
+ ghost:
+  image: ghost
+  container_name: ghost
+  ports:
+   - 9999:2368
+  networks:
+   - abc
+
+ db:
+  image: mysql:5
+  environment:
+   MYSQL_ROOT_PASSWORD: intelliqit
+  container_name: mydb
+  networks:
+   - xyz
+
+networks:
+ abc: {}
+ xyz: {}
+...
+
+
+===========================================================================
+---
+version: '3.8'
+
+services:
+
+ wordpress:
+  image: wordpress
+  container_name: wordpress
+  ports:
+   - 9999:80
+  volumes:
+   - wordpress:/var/www/html
+  networks:
+   - abc
+
+
+ db:
+  image: mysql:5
+  environment:
+   MYSQL_ROOT_PASSWORD: intelliqit
+  container_name: mydb
+  volumes:
+   - db:/var/lib/mysql
+  networks:
+   - xyz
+
+
+volumes:
+ wordpress:
+ db:
+
+networks:
+ abc: {}
+ xyz: {}
+...
+
+================================================================
+
+---
+version: '3.8'
+
+services:
+ jenkins:
+  build: .
+  container_name: jenkins
+  ports:
+   - 9090:8080
+
+ tomcat:
+  image: tomcat
+  ports:
+   - 7070:8080
+  container_name: tomcat
+...
+
