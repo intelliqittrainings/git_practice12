@@ -1,0 +1,149 @@
+def add(x,y):
+    print(x+y)
+
+def sub(x,y):
+    print(x-y)
+
+def mul(x,y):
+    print(x*y)
+
+def div(x,y):
+    print(x/y)
+
+add(7,8)
+add(100,200)
+mul(5,2)
+
+=========================================================================
+def copy_file(srcfile,destfile):
+    file1=open(srcfile,'r')
+    file2=open(destfile,'w')
+    data = file1.read()
+    file2.write(data)
+
+copy_file("C:\\Users\\gandh\\OneDrive\\Desktop\\linux.txt","C:\\Users\\gandh\\OneDrive\\Desktop\\newlinux.txt")
+
+=============================================================================
+
+
+class Calculator:
+    def add(self,a,b):
+        print(a+b)
+    def sub(self,a,b):
+        print(a-b)
+    def mul(self,a,b):
+        print(a*b)
+    def div(self,a,b):
+        print(a/b)
+    def exp(self,a,b):
+        print(a**b)
+
+
+c = Calculator()
+c.mul(5,4)
+c.sub(10,9)
+
+
+==============================================================================
+import math
+import calendar
+
+a = math.sqrt(16)
+print(a)
+
+b = math.factorial(5)
+print(b)
+
+c = calendar.isleap(2020)
+print(c)
+d = calendar.month(2021,2)
+print(d)
+
+
+==================================================================
+def area(length,breadth):
+    print(length*breadth)
+
+def perimeter(length,bredth):
+    print(2*(length+bredth))
+
+
+import dimensions
+
+dimensions.area(10,5)
+dimensions.perimeter(10,5)
+
+===============================================================
+Program to accept a password and check if it is 6-12 characters long
+It should have lower case and upper case alphabets
+It should have number and the special character @ # $
+
+import re
+p = input("Enter some password: ")
+x = True
+while x:
+    if (len(p)<6 or len(p)>12):
+        break
+    elif not re.search("[a-z]",p):
+        break
+    elif not re.search("[A-Z]",p):
+        break
+    elif not re.search("[0-9]",p):
+        break
+    elif not re.search("[$#@]",p):
+        break
+    else:
+        print("Valid password")
+        x= False
+
+if x:
+    print("Invalid password")
+
+===========================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
